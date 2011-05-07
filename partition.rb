@@ -15,10 +15,13 @@ class Partition
   alias subsets buckets
 
   def smallest_bucket
-    candidate ||= @buckets.min {|a,b| a.map(&:last).sum <=> b.map(&:last).sum}
     cadidate = @buckets.detect(&:empty?)
     candidate ||= @buckets.min {|a,b| a.value_sum <=> b.value_sum}
     candidate
+  end
+
+  def biggest_bucket
+    @buckets.max {|a,b| a.value_sum <=> b.value_sum}
   end
 
   def fill_buckets
@@ -31,9 +34,22 @@ class Partition
     @prepared = true
   end
 
-  def subsets
-    fill_buckets unless @prepared
-    @buckets
+  def reset!
+    @buckets = Array.new(@bucket_count) { Bucket.new }
+    @prepared = false
+  end
+
+  # optimizes the bucketsize for time
+  # takes the longest critical path (biggest task)
+  # and calculates the amount of buckets of equal size
+  # needed that all other tasks can fit in them
+  def time_optimal_size
+    total_time = buckets.inject(0){|a,b| a+b.value_sum}
+    (total_time / biggest_bucket.value_sum.to_f).ceil
+  end
+
+  def time_optimal_size!
+    @bucket_count = time_optimal_size
   end
 
 end
