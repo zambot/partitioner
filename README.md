@@ -12,6 +12,7 @@ Inputs
 
 At first, the knowledge base must be preseeded wih your data.
 The datastructure is an Array, where each element is a bi-tupel of
+
     [ Identifier,  Costs ]
 
 Examples
