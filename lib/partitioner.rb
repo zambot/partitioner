@@ -44,8 +44,8 @@ class Partition
   # and calculates the amount of buckets of equal size
   # needed that all other tasks can fit in them
   def time_optimal_size
-    total_time = buckets.inject(0){|a,b| a+b.value_sum}
-    (total_time / biggest_bucket.value_sum.to_f).ceil
+    total_time = kb.inject(0){|a,b| a+b.last}
+    (total_time / kb.map(&:last).max.to_f).ceil
   end
 
   def time_optimal_size!
