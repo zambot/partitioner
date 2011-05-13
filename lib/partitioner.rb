@@ -1,14 +1,14 @@
 require 'bucket'
 class Partition
   attr_accessor :kb, :bucket_count
-  def initialize(bucket_count)
+  def initialize(bucket_count = nil)
     @kb = {}
     @bucket_count = bucket_count
-    @buckets = Array.new(bucket_count) {Bucket.new}
     @prepared = false
   end
 
   def buckets
+    time_optimal_size! unless @bucket_count
     fill_buckets unless @prepared
     @buckets
   end
@@ -25,6 +25,7 @@ class Partition
   end
 
   def fill_buckets
+    reset!
     kb = @kb.dup
     kb = kb.sort_by {|x| x.last}.reverse
 
