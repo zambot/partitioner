@@ -1,5 +1,5 @@
-require 'bucket'
-class Partition
+require 'partitioner/bucket'
+class Partitioner
   attr_accessor :kb, :bucket_count
   def initialize(bucket_count = nil)
     @kb = {}

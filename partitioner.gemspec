@@ -1,9 +1,8 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("../lib/partitioner/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "partitioner"
-  s.version     = Partitioner::VERSION
+  s.version     = "0.0.1"
   s.platform    = Gem::Platform::RUBY
   s.authors     = []
   s.email       = []
@@ -15,8 +14,8 @@ Gem::Specification.new do |s|
   s.rubyforge_project         = "partitioner"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
-  s.add_development_dependency "rspec",  ">=2.5.0"
-  
+  s.add_development_dependency "rspec",  ">= 2.5.0"
+
 
   s.files        = `git ls-files`.split("\n")
   s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact

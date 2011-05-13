@@ -1,7 +1,7 @@
 require 'rspec'
 require 'partitioner'
 
-describe Partition do
+describe Partitioner do
 
   def create_timings(array)
     ret = []
@@ -12,7 +12,7 @@ describe Partition do
   end
 
   before(:each) do
-    @partition = Partition.new(4)
+    @partition = Partitioner.new(4)
   end
 
   it "should be able to just fit in 1" do
