@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.authors     = []
   s.email       = []
   s.homepage    = "http://rubygems.org/gems/partitioner"
-  s.summary     = "TODO: Write a gem summary"
-  s.description = "TODO: Write a gem description"
+  s.summary     = "get all your tasks parallelized into even buckets."
+  s.description = "partitioner. solves the bin packing problem."
 
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "partitioner"
