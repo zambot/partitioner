@@ -1,5 +1,5 @@
 require 'rspec'
-require 'partition'
+require 'partitioner'
 
 describe Partition do
 

@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    partitioner (0.0.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -15,4 +20,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec
+  bundler (>= 1.0.0)
+  partitioner!
+  rspec (>= 2.5.0)
